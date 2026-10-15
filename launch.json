@@ -1,0 +1,20 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "RiskToken",
+    "name": "IMD RISK",
+    "symbol": "RISK",
+    "decimals": 18,
+    "constructorArgs": [],
+    "totalSupply": "1000000000000000000000000000"
+  },
+  "contracts": [],
+  "pool": {
+    "pairedCurrency": "0x5f7bb59365ce557c26dbcaa4ee9d39a4b95b7127",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "economics": {"poolBps":8800,"initialMarketCapWei":"4000000000000000000000","remainderTo":"0x12a7aad083cef06fef7c295514b52fc8bc81960d"},
+  "notes": "RiskToken is a fixed-supply ERC-20 named IMD RISK (RISK) with 18 decimals. Its constructor takes no arguments and mints all 1,000,000,000 tokens once to msg.sender, the launch factory. Transfers have no token tax or burn, and there are no external minting or administrative controls. No application contracts are deployed. pool.initialPrice is provenance only; the deployer derives the opening price from economics.initialMarketCapWei and the total supply."
+}
