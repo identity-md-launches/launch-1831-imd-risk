@@ -7,6 +7,7 @@ import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {IERC20Errors} from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
 import {RiskToken} from "../src/RiskToken.sol";
 
+/// forge-config: default.fuzz.runs = 1000
 contract RiskTokenTest is Test {
     uint256 private constant SUPPLY = 1_000_000_000_000_000_000_000_000_000;
 
@@ -272,7 +273,7 @@ contract RiskTokenTest is Test {
     }
 
     function testFuzz_transferConservesSupply(address recipient, uint256 amount) public {
-        vm.assume(recipient != address(0));
+        recipient = address(uint160(bound(uint256(uint160(recipient)), 1, type(uint160).max)));
         amount = bound(amount, 0, SUPPLY);
         assertTrue(token.transfer(recipient, amount));
         if (recipient == address(this)) {
